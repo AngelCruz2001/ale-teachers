@@ -1,0 +1,135 @@
+@use "../../styles/abstracts/mixins";
+@use "../../styles/colors";
+
+.container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    @include mixins.margin_bottom;
+}
+
+.backButtonContainer {
+    @include mixins.center_flex;
+    border: 1.5px solid colors.$primary;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    position: absolute;
+    i {
+        font-size: 2rem;
+        color: colors.$color-black;
+    }
+}
+
+.title {
+    @include mixins.center_flex;
+    width: 100%;
+    height: 70%;
+    span {
+        font-weight: bold;
+        font-size: calc(1rem + 2vw);
+        color: colors.$color-black;
+    }
+}
+
+.date {
+    @include mixins.center_flex;
+    width: 90%;
+    span {
+        margin: auto;
+    }
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: calc(1rem + 1.8vw);
+    color: colors.$color-black;
+    @include mixins.margin_bottom;
+}
+
+.tableContainer {
+    margin: auto;
+    border: 1px solid colors.$primary;
+    font-family: "Segoe UI", sans-serif;
+    width: 90%;
+    border-radius: 1rem;
+    @include mixins.scrollBar;
+}
+.table {
+    min-width: 130rem;
+}
+.table__header {
+    @include mixins.table_section;
+    background-color: colors.$primary;
+    height: 5vh;
+}
+
+.table__header__cell,
+.table__body__cell {
+    @include mixins.table_cell;
+    width: 10%;
+    &:nth-child(1) {
+        width: 30%;
+    }
+    &:nth-child(2) {
+        width: 45%;
+    }
+    &:last-of-type {
+        width: 20%;
+    }
+}
+
+.table__header__cell {
+    color: colors.$color-white;
+    height: 100%;
+    border: 0.5px solid darken(colors.$primary, 5%);
+}
+
+.table__body {
+    @include mixins.table_section;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+.table__body__cell {
+    color: colors.$color-black;
+    border-right: 0.5px solid colors.$color-gray;
+    height: 5rem;
+
+    &:nth-child(2) {
+        padding-left: 0.5rem;
+        text-align: left;
+    }
+
+    span {
+        width: 100%;
+    }
+}
+
+.table__body__row {
+    width: 100%;
+    height: 5vh;
+    @include mixins.transition;
+    display: flex;
+    align-items: center;
+
+    &:nth-child(even) {
+        background-color: colors.$gray-table;
+    }
+}
+
+.grade {
+    width: 100%;
+    input {
+        width: 40%;
+        background-color: transparent;
+        text-align: center;
+    }
+    i {
+        font-size: 2rem;
+        color: colors.$color-black;
+        color: green;
+        &:nth-child(1) {
+            color: red;
+        }
+    }
+}

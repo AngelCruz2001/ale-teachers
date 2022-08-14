@@ -1,0 +1,35 @@
+@use "../../styles/abstracts/mixins";
+
+.navbar {
+  @include mixins.navbar;
+  @include mixins.margin_bottom;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: auto;
+}
+
+.imageContainer {
+  width: 30%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.tigreContainer {
+  width: calc(10rem + 1.5vw);
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.tigre {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

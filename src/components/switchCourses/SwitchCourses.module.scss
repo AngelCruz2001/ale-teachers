@@ -1,0 +1,38 @@
+@use "../../styles/colors.scss";
+@use "../../styles/abstracts/mixins.scss";
+
+.switchContainer {
+    display: flex;
+    width: 85vw;
+    height: 5rem;
+    margin: 0 auto;
+
+    border-radius: 2rem;
+    border: 1px solid #bfbfbf;
+    overflow: hidden;
+
+    span {
+        @include mixins.transition;
+        @include mixins.center_flex;
+        width: 50%;
+        height: 100%;
+
+        font-size: calc(1.4rem + 1vw);
+
+        color: colors.$text-primary;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+.active {
+    @include mixins.transition;
+    background-color: colors.$secondary !important;
+    color: colors.$color-white !important;
+}
+
+.title {
+    margin-top: 3rem;
+    @include mixins.title;
+    @include mixins.margin_bottom;
+}

@@ -1,0 +1,132 @@
+@use "../colors" as *;
+@use "./variables" as *;
+@use "../animations" as *;
+@use "../fonts" as *;
+@mixin transition {
+    transition: $transition;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content;
+        } // 600px
+    }
+
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        } // 900px
+    }
+
+    @if $breakpoint==from-tab-land {
+        @media (min-width: 56.25em) {
+            @content;
+        } // 900px
+    }
+
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content;
+        } //1200px
+    }
+
+    @if $breakpoint==big-desk {
+        @media (min-width: 112.5em) {
+            @content;
+        } //1800px
+    }
+}
+
+@mixin scrollBar {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background-color: #999999;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #b3b3b3;
+    }
+
+    /* Estilos track de scroll */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+@mixin boxShadow {
+    box-shadow: 0 0 2.5rem 1rem rgba($primary-dark, 0.3);
+}
+
+@mixin navbar {
+    padding: 0 calc(0.3vw + 0.5rem);
+    height: 12rem;
+    background-color: $primary;
+    display: flex;
+    p {
+        color: $color-white;
+        font-family: "Philosopher", sans-serif;
+        text-align: center;
+    }
+}
+
+@mixin title {
+    font-size: calc(1.5rem + 1vw);
+    color: $color-black;
+    text-align: center;
+    font-family: "Segoe UI", sans-serif;
+}
+
+@mixin margin_bottom {
+    margin-bottom: 3rem;
+}
+
+@mixin center_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin table_section {
+    display: flex;
+    min-width: 80rem;
+    width: 100%;
+}
+
+@mixin table_cell {
+    @include center_flex;
+    text-align: center;
+}
+
+@mixin table_sizes {
+    &:nth-child(1) {
+        width: 15%;
+    }
+    &:nth-child(2) {
+        width: 30%;
+    }
+    &:nth-child(3) {
+        width: 20%;
+    }
+    &:nth-child(4) {
+        width: 35%;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}

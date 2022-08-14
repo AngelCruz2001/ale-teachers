@@ -1,0 +1,26 @@
+@use "../../styles/abstracts/mixins.scss";
+
+.searchbarContainer {
+    display: flex;
+    width: 80%;
+    height: 4.5vh;
+    margin: 0 auto;
+    border: 1.5px solid #bfbfbf;
+    border-radius: 1rem;
+    align-items: center;
+    padding: 0 1rem;
+    @include mixins.margin_bottom;
+
+
+    i {
+        font-size: calc(1.8rem + 1vw);
+    }
+}
+
+.searchbar {
+    width: 100%;
+    height: 100%;
+    margin-left: 1rem;
+    font-size: calc(1.5rem + 1vw);
+
+}
