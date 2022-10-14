@@ -3,12 +3,12 @@
 @use "./abstracts/variables";
 @import "fonts";
 
-.swal2-popup {
-    font-size: 1.4rem !important;
+.swal2-popup  {
+    font-size: 1.7rem !important;
 }
 
 .swal2-container {
-    zoom: 1.5;
+    zoom: 1 !important;
 }
 
 html,
