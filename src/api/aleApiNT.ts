@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const aleApiNT = axios.create({
-    baseURL: 'http://api.alejandria.edu.mx:3005/api-ale/v1',
+    baseURL: 'https://alejandria.edu.mx/api-ale/v1',
     headers: {
         'Content-Type': 'application/json',
     }
