@@ -6,7 +6,7 @@ if (typeof window !== 'undefined') {
 }
 
 const aleApi = axios.create({
-    baseURL: 'https://alejandria.edu.mx/api-ale/v1',
+    baseURL: 'https://api.alejandria.edu.mx/api-ale/v1',
     headers: {
         'Content-Type': 'application/json',
         'x-token': token ? token : ''
