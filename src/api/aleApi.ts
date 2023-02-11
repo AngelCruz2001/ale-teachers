@@ -17,18 +17,10 @@ export const getToken = async () => {
 };
 
 const aleApi = axios.create({
-<<<<<<< HEAD
   baseURL: `http://api.alejandria.edu.mx:3005/api-ale/v1`,
   headers: {
     "Content-Type": "application/json",
   },
-=======
-    baseURL: 'https://api.alejandria.edu.mx/api-ale/v1',
-    headers: {
-        'Content-Type': 'application/json',
-        'x-token': token ? token : ''
-    }
->>>>>>> df668691f6d28e1280b477d08c2fe2a23c04c02b
 });
 
 aleApi.interceptors.request.use(
