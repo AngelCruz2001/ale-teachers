@@ -1,10 +1,8 @@
-import { Login } from "components"
-import { NextPage } from "next"
+import { Login } from "components";
+import { NextPage } from "next";
 
 const Auth: NextPage = () => {
-    return (
-        <Login />
-    )
-}
+  return <Login />;
+};
 
 export default Auth;

@@ -1,17 +1,39 @@
-import axios from 'axios';
+import axios from "axios";
+import { getSession } from "next-auth/react";
 
 let token;
-if (typeof window !== 'undefined') {
-    token = localStorage.getItem('token');
-}
+export const getToken = async () => {
+  return new Promise<string | null>(async (resolve, reject) => {
+    const session = await getSession();
+    if (session) {
+      if (session.user != null) {
+        token = session.user.token;
+        resolve(session.user.token);
+      }
+    }
+
+    reject(null);
+  });
+};
 
 const aleApi = axios.create({
-    baseURL: 'http://api.alejandria.edu.mx:3005/api-ale/v1',
-    headers: {
-        'Content-Type': 'application/json',
-        'x-token': token ? token : ''
-    }
+  baseURL: `http://api.alejandria.edu.mx:3005/api-ale/v1`,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
+aleApi.interceptors.request.use(
+  async (config) => {
+    const finalToken = await getToken();
+    if (finalToken && config.headers) {
+      config.headers["x-token"] = finalToken;
+      return Promise.resolve(config);
+    }
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default aleApi;
