@@ -2,6 +2,7 @@ import aleApi from "api/aleApi"
 import { Course } from "interfaces/Courses"
 import { Dispatch } from "redux"
 import { setActiveCourse, setLoadingCOURSE } from "./courseSlice"
+import Swal from 'sweetalert2'
 
 interface CourseResponse {
     ok: boolean;
@@ -29,8 +30,9 @@ export const startSetAssistance = (id_assistance: number, assistance: number) =>
     try {
         const { data } = await aleApi.put<AssistanceResponse>(`/assits/${id_assistance}`, { attended: assistance })
         console.log(data.msg)
-    } catch (error) {
+    } catch (error: any) {
         console.log(error)
+        Swal.fire('Error', error.response.data.msg, 'error')
     }
 }
 
@@ -38,7 +40,8 @@ export const startSetGrade = (id_grade: number, grade: string) => async (dispatc
     try {
         const { data } = await aleApi.put<AssistanceResponse>(`/grades/regular/${id_grade}`, { grade })
         console.log(data.msg)
-    } catch (error) {
+    } catch (error: any) {
         console.log(error)
+        Swal.fire('Error', error.response.data.msg, 'error')
     }
 }

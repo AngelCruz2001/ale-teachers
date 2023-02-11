@@ -53,6 +53,7 @@
     width: 90%;
     border-radius: 1rem;
     @include mixins.scrollBar;
+    margin-bottom: 6rem;
 }
 .table {
     min-width: 130rem;

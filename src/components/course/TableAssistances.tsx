@@ -1,7 +1,5 @@
 import { AssistanceItem } from 'components/assistanceItem'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
-import React, { useEffect } from 'react'
-
 import styles from "./Course.module.scss"
 import { RowStudent } from './RowStudent';
 import { Course } from '../../interfaces/Courses';

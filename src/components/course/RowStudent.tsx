@@ -51,7 +51,9 @@ export const RowStudent = ({ student, assistanceDays, initialGrade }: RowInterfa
             }
             <div className={`${styles.table__body__cell} ${styles.grade}`} >
                 {controllers && <i className="fa-solid fa-xmark red" onClick={handleCancel}></i>}
-                <input type="text" onChange={handleChangeGrade} value={grade} />
+
+             
+                <input type="text" onChange={handleChangeGrade} onFocusCapture={(e) => {setGrade('');}} value={grade} />
                 {controllers && <i className="fa-solid fa-check green" onClick={handleSaveGrade}></i>}
             </div>
         </div>
