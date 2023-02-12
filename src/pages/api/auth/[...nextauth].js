@@ -4,7 +4,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export default NextAuth({
   session: {
     strategy: "jwt",
-    secret: process.env.NEXTAUTH_SECRET,
   },
   providers: [
     CredentialsProvider({

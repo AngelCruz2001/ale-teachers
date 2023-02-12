@@ -30,7 +30,12 @@ export const Login = () => {
         <div className={Styles.imageContainer}>
           <Image className={Styles.image} src={logoAleNoText} alt="" />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
           <input
             placeholder={"Usuario"}
             type="string"
