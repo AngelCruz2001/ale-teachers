@@ -8,6 +8,10 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       id: "login",
+      credentials: {
+        id: { label: "ID", type: "text", placeholder: "Username" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
         try {
           const response = await fetch(
@@ -27,8 +31,8 @@ export default NextAuth({
           return res;
         } catch (error) {
           console.log({ error });
-          return {};
         }
+        return null;
       },
     }),
   ],
