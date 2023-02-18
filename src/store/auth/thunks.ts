@@ -1,4 +1,4 @@
-import aleApiNT from "api/aleApiNT";
+import aleApiNT from "api_ale/aleApiNT";
 import Router from "next/router";
 import { AppDispatch } from "store/store";
 import { setLoadingAUTH, setUser } from "./authSlice";
