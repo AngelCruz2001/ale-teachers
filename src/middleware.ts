@@ -20,13 +20,19 @@ import { NextResponse } from "next/server";
 // }
 export async function middleware(req: any) {
   if (req.nextUrl.pathname === "/auth") {
-    const session = await getToken({ req: req, secret: process.env.SECRET });
+    const session = await getToken({
+      req: req,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
     const url = req.nextUrl.clone();
     url.pathname = "/home";
     if (session) return NextResponse.rewrite(url);
   }
   if (["/home", "/course"].includes(req.nextUrl.pathname)) {
-    const session = await getToken({ req: req, secret: process.env.SECRET });
+    const session = await getToken({
+      req: req,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
     const url = req.nextUrl.clone();
     url.pathname = "/auth";
     if (!session) return NextResponse.rewrite(url);
