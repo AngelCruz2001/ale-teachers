@@ -15,7 +15,7 @@ export default NextAuth({
       async authorize(credentials) {
         try {
           const response = await fetch(
-            `http://api.alejandria.edu.mx:3005/api-ale/v1/auth/login`,
+            `https://api.alejandria.edu.mx/api-ale/v1/auth/login`,
             {
               headers: {
                 "Content-Type": "application/json",
