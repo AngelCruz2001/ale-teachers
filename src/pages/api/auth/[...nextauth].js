@@ -14,16 +14,18 @@ export default NextAuth({
       },
       async authorize(credentials) {
         try {
+          console.log({ credentials });
           const response = await fetch(
             `https://api.alejandria.edu.mx/api-ale/v1/auth/login`,
             {
               headers: {
                 "Content-Type": "application/json",
+                cookie: "",
               },
               method: "POST",
               body: JSON.stringify({
-                id: credentials.id,
-                password: credentials.password,
+                id: "ale222668",
+                password: "ale222668",
               }),
             }
           );
@@ -53,7 +55,7 @@ export default NextAuth({
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/auth",
+    signIn: "/",
     error: "/",
   },
 });

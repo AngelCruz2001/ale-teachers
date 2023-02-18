@@ -26,6 +26,7 @@ export const startLogIn =
         id,
         password,
       });
+      console.log({ res });
       if (res?.ok) {
         router.push("/home");
       }
