@@ -7,8 +7,9 @@ import { store } from "store/store";
 import { SessionProvider, getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { Session } from "next-auth";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps<{ session: Session }>) {
   const router = useRouter();
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           referrerPolicy="no-referrer"
         />
       </Head>
-      <SessionProvider session={session}>
+      <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
     </Provider>
