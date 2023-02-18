@@ -45,7 +45,7 @@ export const Login = () => {
           />
           {errors.id && <p>{errors.id}</p>}
           <input
-            placeholder="****************"
+            placeholder="*****************"
             type="password"
             name="password"
             onChange={handleChange}
