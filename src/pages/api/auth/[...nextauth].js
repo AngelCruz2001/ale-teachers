@@ -14,7 +14,7 @@ export default NextAuth({
       },
       async authorize(credentials) {
         try {
-          console.log({ credentials });
+          const { id, password } = credentials;
           const response = await fetch(
             `https://api.alejandria.edu.mx/api-ale/v1/auth/login`,
             {
@@ -24,8 +24,8 @@ export default NextAuth({
               },
               method: "POST",
               body: JSON.stringify({
-                id: "ale222668",
-                password: "ale222668",
+                id,
+                password,
               }),
             }
           );
