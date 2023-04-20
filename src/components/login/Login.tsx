@@ -11,8 +11,8 @@ export const Login = () => {
 
   const { errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
-      id: "ale222668",
-      password: "ale222668",
+      id: "",
+      password: "",
     },
 
     onSubmit: (values) => {
